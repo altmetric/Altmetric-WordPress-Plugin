@@ -6,9 +6,15 @@ your WordPress blog.
 
 ## Features
 
-* Includes the Altmetric badge Javascript automatically
+* Includes the Altmetric badge Javascript automatically (i.e. your posts will contain the following javascript)
+
+```
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+```
+
 * Ability to include an embedded altmetric badge for any article by referring to
-  its DOI, arXivID, PubMed ID or similar identifier
+  its [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), [arXivID](http://arxiv.org/help/arxiv_identifier),
+  [PubMed ID](http://www.ncbi.nlm.nih.gov/pmc/pmctopmid/) or similar identifier
 
 ## Usage
 
@@ -22,7 +28,7 @@ posts. The format of the shortcode you need to insert is as follows:
     [altmetric doi="10.1038/nature.2012.9872"]
 
 Which means - add an embedded donut for the [Nature article](http://dx.doi.org/10.1038/nature.2012.9872) 
-with a DOI of `10.1038/nature.2012.9872`.
+with a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier) of `10.1038/nature.2012.9872`.
 
 ### Article identifiers
 
