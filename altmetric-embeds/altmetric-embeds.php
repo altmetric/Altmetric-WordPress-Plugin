@@ -3,7 +3,7 @@
  * Plugin Name: Altmetric embeds
  * Plugin URI: http://api.altmetric.com/embeds.html
  * Description: This plugin allows you to easily add altmetric embeds
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: Altmetric
  * Author URI: http://altmetric.com
  * License: GPL2
@@ -34,6 +34,7 @@ class altmetric {
             'popover' => null,
             'class' => '',
             'style' => '',
+            'details' => null,
             'type' => 'donut',
         ), $atts));
 
@@ -73,7 +74,11 @@ class altmetric {
         if (isset($popover)) {
             $embed_popover = "data-badge-popover='{$popover}'";
         }
-        $embed_element = "<div class='{$embed_class}' data-badge-type='{$type}' data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style}></div>";
+        $embed_details = "";
+        if (isset($details)) {
+            $embed_details = "data-badge-details='{$details}'";
+        }
+        $embed_element = "<div class='{$embed_class}' data-badge-type='{$type}' data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style} {$embed_details}></div>";
         return $embed_element;
     }
 

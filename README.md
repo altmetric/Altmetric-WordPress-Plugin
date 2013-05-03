@@ -58,6 +58,15 @@ You can add a popover to the embedded badge:
 The value is where you want the popover to appear relative to the badge. 
 Valid values are left, right, top and bottom.
 
+### Details
+
+You can add the details to the embed like so:
+
+    [altmetric doi="10.1038/nature.2012.9872" details="right"]
+
+Currently, details can only be on the right and you can't mix `popover` and `details` (it's either or) - `popover`
+takes priority.
+
 ### Floating
 
 If you want to float the entire badge on the page, you can add a float attribute:
@@ -95,6 +104,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
+
+### 0.0.3 (3rd May 2013)
+
+* Add details attribute
 
 ### 0.0.2 (3rd May 2013)
 
