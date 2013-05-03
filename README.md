@@ -40,6 +40,15 @@ the Altmetric API can understand: doi, pmid, arxiv_id and handle at present.
 * PubmedId: `[altmetric pmid="21771119"]`
 * Handle: `[altmetric handle="2022/14471"]`
 
+### Type
+
+The type attribute controls which type of embedded badge to include. The choices are: `donut`, `medium-donut`, `large-donut`, `1` and `4`.
+Please refer to the [badge types](http://api.altmetric.com/embeds.html#badge-types) documentation to see what they look like.
+
+For example if you want a large-donut (180px x 180px):
+
+    [altmetric doi="10.1038/nature.2012.9872" type="large-donut"]
+
 ### Popovers
 
 You can add a popover to the embedded badge:
