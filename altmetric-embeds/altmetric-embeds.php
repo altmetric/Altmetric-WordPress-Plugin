@@ -3,14 +3,14 @@
  * Plugin Name: Altmetric embeds
  * Plugin URI: http://api.altmetric.com/embeds.html
  * Description: This plugin allows you to easily add altmetric embeds
- * Version: 0.0.3
+ * Version: 0.0.4
  * Author: Altmetric
  * Author URI: http://altmetric.com
  * License: GPL2
  * */
 
 class altmetric {
-    
+
     /**
      * NOTE: This method of substituting text into divs is deprecated
      */
@@ -65,7 +65,7 @@ class altmetric {
         if (strlen(trim($style)) > 0 || isset($float)) {
             $embed_style = "style='";
             if (isset($float)) {
-                $embed_style = "float: {$float}; ";
+                $embed_style .= "float: {$float}; ";
             }
             $embed_style .= $style;
             $embed_style .= "'";
