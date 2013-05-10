@@ -1,1 +1,189 @@
-Nothing here yet
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Altmetric WordPress Plugin</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+        <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">Altmetric WordPress Plugin</a></h1>
+              <a class="extra" href="/">home</a>
+            </div>
+     
+              <div id="post">
+                <h1 id='readme'>README</h1>
+
+<p>The Altmetric WordPress plugin provides <a href='http://api.altmetric.com/embeds.html'>Altmetric embedded badge</a> support to your WordPress blog.</p>
+
+<h2 id='features'>Features</h2>
+
+<ul>
+<li>Includes the Altmetric badge Javascript automatically (i.e. your posts will contain the following javascript)</li>
+</ul>
+<pre><code>&lt;script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'&gt;&lt;/script&gt;</code></pre>
+<ul>
+<li>Ability to include an embedded altmetric badge for any article by referring to its <a href='http://en.wikipedia.org/wiki/Digital_object_identifier'>DOI</a>, <a href='http://arxiv.org/help/arxiv_identifier'>arXivID</a>, <a href='http://www.ncbi.nlm.nih.gov/pmc/pmctopmid/'>PubMed ID</a> or similar identifier</li>
+</ul>
+
+<h2 id='usage'>Usage</h2>
+
+<ol>
+<li>Copy the <code>altmetric-embeds</code> directory into your <code>wp-content/plugins</code> directory</li>
+
+<li>Navigate to the &#8220;Plugins&#8221; dashboard page</li>
+
+<li>Click on &#8220;Activate&#8221; for the &#8220;Altmetric embeds&#8221; plugin</li>
+</ol>
+
+<p>Now the plugin is activated, you can add Altmetric embedded badges to your blog posts. The format of the shortcode you need to insert is as follows:</p>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-type='donut' data-doi='10.1038/nature.2012.9872'> </div>
+<p>Which means - add an embedded donut for the <a href='http://dx.doi.org/10.1038/nature.2012.9872'>Nature article</a> with a <a href='http://en.wikipedia.org/wiki/Digital_object_identifier'>DOI</a> of <code>10.1038/nature.2012.9872</code>.</p>
+
+<h3 id='article_identifiers'>Article identifiers</h3>
+
+<p>The only required attribute is some kind of article identifier. You can use any that the Altmetric API can understand: doi, pmid, arxiv_id and handle at present.</p>
+
+<h4 id='doi'>doi:</h4>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-type='donut' data-doi='10.1038/nature.2012.9872'> </div>
+<h4 id='arxiv'>arXiv:</h4>
+
+<pre><code>[altmetric arxiv_id=&quot;1209.4191&quot;]</code></pre>
+<div class='altmetric-embed' data-arxiv-id='1209.4191' data-badge-type='donut'> </div>
+<h4 id='pubmedid'>PubmedId:</h4>
+
+<pre><code>[altmetric pmid=&quot;21771119&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-type='donut' data-pmid='21771119'> </div>
+<h4 id='handle'>Handle:</h4>
+
+<pre><code>[altmetric handle=&quot;2022/14471&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-type='donut' data-handle='2022/14471'> </div>
+<h3 id='type'>Type</h3>
+
+<p>The type attribute controls which type of embedded badge to include. The choices are: <code>donut</code>, <code>medium-donut</code>, <code>large-donut</code>, <code>1</code> and <code>4</code>. Please refer to the <a href='http://api.altmetric.com/embeds.html#badge-types'>badge types</a> documentation to see what they look like.</p>
+
+<p>For example if you want a large-donut (180px x 180px):</p>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot; type=&quot;large-donut&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-type='large-donut' data-doi='10.1038/nature.2012.9872'> </div>
+<h3 id='popovers'>Popovers</h3>
+
+<p>You can add a popover to the embedded badge:</p>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot; popover=&quot;right&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-popover='right' data-badge-type='donut' data-doi='10.1038/nature.2012.9872'> </div>
+<p>The value is where you want the popover to appear relative to the badge. Valid values are left, right, top and bottom.</p>
+
+<h3 id='details'>Details</h3>
+
+<p>You can add the details to the embed like so:</p>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot; details=&quot;right&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-details='right' data-badge-type='donut' data-doi='10.1038/nature.2012.9872'> </div>
+<p>Currently, details can only be on the right and you can&#8217;t mix <code>popover</code> and <code>details</code> (it&#8217;s either or) - <code>popover</code> takes priority.</p>
+
+<h3 id='floating'>Floating</h3>
+
+<p>If you want to float the entire badge on the page, you can add a float attribute:</p>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot; float=&quot;right&quot;]</code></pre>
+<div class='altmetric-embed' data-badge-type='donut' data-doi='10.1038/nature.2012.9872' style='float: right;'> </div>
+<p>This will float the entire element to the right. Valid values are left, right and none.</p>
+
+<h3 id='all_singing_all_dancing'>All singing, all dancing</h3>
+
+<p>You can combine any and all of the above attributes, the only required one is an identifier - doi, arxiv_id, pmid, handle.</p>
+
+<pre><code>[altmetric doi=&quot;10.1038/nature.2012.9872&quot; float=&quot;right&quot; popover=&quot;left&quot; style=&quot;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);&quot; class=&quot;someclass&quot; type=&quot;1&quot;]</code></pre>
+<div class='altmetric-embed someclass' data-badge-popover='left' data-badge-type='1' data-doi='10.1038/nature.2012.9872' style='float: right;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);'> </div>
+<p>The above will embed a 110px x 20px badge, floated on the right with a popover (with more details) appearing on the left. It also adds a box shadow around the element, adds a custom CSS class (for further styling).</p>
+
+<h2 id='license'>License</h2>
+
+<p>The Altmetric WordPress Plugin is licensed under the GPL v2 or later.</p>
+
+<blockquote>
+<p>This program is free software; you can redistribute it and/or modify</p>
+</blockquote>
+
+<p>it under the terms of the GNU General Public License, version 2, as published by the Free Software Foundation.</p>
+
+<blockquote>
+<p>This program is distributed in the hope that it will be useful,</p>
+</blockquote>
+
+<p>but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+
+<blockquote>
+<p>You should have received a copy of the GNU General Public License</p>
+</blockquote>
+
+<p>along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA</p>
+
+<h2 id='changelog'>Changelog</h2>
+
+<h3 id='004_7th_may_2013'>0.0.4 (7th May 2013)</h3>
+
+<ul>
+<li>Fix float attribute to not ignore other styles</li>
+</ul>
+
+<h3 id='003_3rd_may_2013'>0.0.3 (3rd May 2013)</h3>
+
+<ul>
+<li>Add details attribute</li>
+</ul>
+
+<h3 id='002_3rd_may_2013'>0.0.2 (3rd May 2013)</h3>
+
+<ul>
+<li>Add shortcode functionality, thanks to ahoereth on <a href='http://codex.wordpress.org/IRC'>#wordpress IRC</a> for suggesting it</li>
+</ul>
+
+<h3 id='001_1st_may_2013'>0.0.1 (1st May 2013)</h3>
+
+<ul>
+<li>Official Release</li>
+</ul>
+
+<h2 id='author_information'>Author Information</h2>
+
+<p>The Altmetric WordPress plugin was created by <a href='http://www.digital-science.com/people/william-roe'>Will Roe</a>.</p>
+              </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Altmetric<br />
+                  Building Better Worlds<br />
+                  support@altmetric.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/altmetric/">github.com/altmetric</a><br />
+                  <a href="http://twitter.com/altmetric/">twitter.com/altmetric</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>
