@@ -33,10 +33,21 @@ with a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier) of `10.1038
 The only required attribute is some kind of article identifier. You can use any that
 the Altmetric API can understand: doi, pmid, arxiv_id and handle at present.
 
-* doi: `[altmetric doi="10.1038/nature.2012.9872"]`
-* arXiv: `[altmetric arxiv_id="21771119"]`
-* PubmedId: `[altmetric pmid="21771119"]`
-* Handle: `[altmetric handle="2022/14471"]`
+#### doi: 
+
+    [altmetric doi="10.1038/nature.2012.9872"]
+
+#### arXiv: 
+
+    [altmetric arxiv_id="21771119"]
+
+#### PubmedId: 
+
+    [altmetric pmid="21771119"]
+
+#### Handle: 
+
+    [altmetric handle="2022/14471"]
 
 ### Type
 
