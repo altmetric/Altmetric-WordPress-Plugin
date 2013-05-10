@@ -1,0 +1,4 @@
+name: Altmetric WordPress Plugin
+pygments: true
+source: docs
+destination: public

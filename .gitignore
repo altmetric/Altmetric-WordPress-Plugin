@@ -39,3 +39,5 @@ intermediate
 cache
 
 *.zip
+/deploy
+/public
