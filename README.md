@@ -8,9 +8,7 @@ your WordPress blog.
 
 * Includes the Altmetric badge Javascript automatically (i.e. your posts will contain the following javascript)
 
-```
-<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-```
+<pre><code>&lt;script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'&gt;&lt;/script&gt;</code></pre>
 
 * Ability to include an embedded altmetric badge for any article by referring to
   its [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier), [arXivID](http://arxiv.org/help/arxiv_identifier),
