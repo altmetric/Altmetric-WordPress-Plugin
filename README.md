@@ -114,6 +114,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
+### 0.0.4 (7th May 2013)
+
+* Fix float attribute to not ignore other styles
+
 ### 0.0.3 (3rd May 2013)
 
 * Add details attribute
