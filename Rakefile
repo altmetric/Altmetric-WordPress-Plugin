@@ -18,12 +18,18 @@ namespace :docs do
     end
   end
 
+  desc 'Build docs'
+  task :build => :index do
+    system 'jekyll build'
+  end
+
   desc 'Push github pages'
-  task :push do
+  task :push => :build do
     puts "## Deploying Github Pages"
     (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
     cp_r "#{public_dir}/.", deploy_dir
     cd "#{deploy_dir}" do
+      rm_rf "jekyll" # some junk?
       system "git add ."
       system "git add -u"
       message = "Site updated at: #{Time.now.utc}"
