@@ -3,7 +3,7 @@
  * Plugin Name: Altmetric embeds
  * Plugin URI: http://api.altmetric.com/embeds.html
  * Description: This plugin allows you to easily add altmetric embeds
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Altmetric
  * Author URI: http://altmetric.com
  * License: GPL2
