@@ -114,6 +114,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
+### 0.0.6 (14th May 2013)
+
+* Added 'example' attribute for embedding examples of how to use the shortcode
+  as well as the actual embed.
+
 ### 0.0.5 (14th May 2013)
 
 * Moved altmetric-embed.php to top level so that tag ZIPs from Github work

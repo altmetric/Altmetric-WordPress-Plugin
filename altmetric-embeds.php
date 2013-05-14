@@ -3,7 +3,7 @@
  * Plugin Name: Altmetric embeds
  * Plugin URI: http://api.altmetric.com/embeds.html
  * Description: This plugin allows you to easily add altmetric embeds
- * Version: 0.0.5
+ * Version: 0.0.6
  * Author: Altmetric
  * Author URI: http://altmetric.com
  * License: GPL2
@@ -23,7 +23,7 @@ class altmetric {
         }
     }
 
-    function altmetric_code($atts) {
+    function altmetric_code($atts, $content, $tag) {
         extract( shortcode_atts( array(
             'doi' => null,
             'arxiv_id' => null,
@@ -35,6 +35,7 @@ class altmetric {
             'class' => '',
             'style' => '',
             'details' => null,
+            'example' => null,
             'type' => 'donut',
         ), $atts));
 
@@ -79,6 +80,21 @@ class altmetric {
             $embed_details = "data-badge-details='{$details}'";
         }
         $embed_element = "<div class='{$embed_class}' data-badge-type='{$type}' data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style} {$embed_details}></div>";
+        if (isset($example)) {
+            $shortcode_example = "<code>[{$tag}";
+            foreach ($atts as $key => $value) {
+                if ($key == 'example') {
+                    continue;
+                }
+                $shortcode_example .= " {$key}=\"{$value}\"";
+            }
+            $shortcode_example .= "]</code>";
+            if ($example == "before") {
+                $embed_element .= $shortcode_example;
+            } else {
+                $embed_element = $shortcode_example . $embed_element;
+            }
+        }
         return $embed_element;
     }
 
