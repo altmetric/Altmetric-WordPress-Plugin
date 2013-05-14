@@ -75,6 +75,7 @@ ul.posts span {
     margin: 0.2em 0em 2em;
     padding-left: 25px;
     padding-right: 25px;
+    text-align: left;
   }
 }
 
