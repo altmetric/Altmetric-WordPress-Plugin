@@ -4,6 +4,8 @@ deploy_dir = "deploy"
 public_dir = jekyll_config['destination']
 remote = `git remote -v`.match(/origin\s+(\S+)/)[1]
 
+task :build => 'docs:build'
+
 namespace :docs do
   desc 'Setup deploy directory for github pages'
   task :setup do
