@@ -66,6 +66,15 @@ ul.posts span {
   width: 42em;
   margin: 3em auto 2em;
   line-height: 1.5em;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .site {
+    width: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
 .site .header a {
@@ -169,7 +178,5 @@ code {
 }
 
 .altmetric-embed {
-  margin-right: -200px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em;
 }
