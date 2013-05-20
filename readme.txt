@@ -115,6 +115,9 @@ appearing on the left. It also adds a box shadow around the element, adds a cust
 
 == Changelog ==
 
+= 0.0.7 =
+* readme.txt added
+
 = 0.0.6 =
 * Added 'example' attribute for embedding examples of how to use the shortcode
   as well as the actual embed.

@@ -114,6 +114,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 ## Changelog
 
+### 0.0.7 (20th May 2013)
+
+* readme.txt added
+
 ### 0.0.6 (14th May 2013)
 
 * Added 'example' attribute for embedding examples of how to use the shortcode
