@@ -32,7 +32,6 @@ class Altmetric
 
     public function altmetricCode($atts, $content, $tag)
     {
-        print_r($atts);
         extract(shortcode_atts(array(
             'doi' => null,
             'arxiv_id' => null,
