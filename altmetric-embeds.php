@@ -9,13 +9,20 @@
  * License: GPL2
  * */
 
-class altmetric {
+class altmetric
+{
 
     /**
      * NOTE: This method of substituting text into divs is deprecated
      */
-    function dois($content) {
-        $new_content = preg_replace("/altmetric:(doi|arxiv-id|pmid|handle):(\S+):popover:(\S+):float:(\S+):altmetric/i", "<div class='altmetric-embed' data-badge-type='donut' data-$1='$2' data-badge-popover='$3' style='float: $4'></div>", $content);
+    public function dois($content)
+    {
+        $new_content = preg_replace(
+            "/altmetric:(doi|arxiv-id|pmid|handle):(\S+):popover:(\S+):float:(\S+):altmetric/i",
+            "<div class='altmetric-embed' data-badge-type='donut' data-$1='$2' "
+            + "data-badge-popover='$3' style='float: $4'></div>",
+            $content
+        );
         if (PREG_NO_ERROR !== preg_last_error()) {
             return $content;
         } else {
@@ -23,8 +30,9 @@ class altmetric {
         }
     }
 
-    function altmetric_code($atts, $content, $tag) {
-        extract( shortcode_atts( array(
+    public function altmetricCode($atts, $content, $tag)
+    {
+        extract(shortcode_atts(array(
             'doi' => null,
             'arxiv_id' => null,
             'arxiv' => null,
@@ -44,7 +52,7 @@ class altmetric {
         if (isset($doi)) {
             $identifier = $doi;
             $ident_type = "doi";
-        }elseif (isset($arxiv_id)) {
+        } elseif (isset($arxiv_id)) {
             $identifier = $arxiv_id;
             $ident_type = "arxiv-id";
         } elseif (isset($arxiv)) {
@@ -79,7 +87,9 @@ class altmetric {
         if (isset($details)) {
             $embed_details = "data-badge-details='{$details}'";
         }
-        $embed_element = "<div class='{$embed_class}' data-badge-type='{$type}' data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style} {$embed_details}></div>";
+        $embed_element = "<div class='{$embed_class}' data-badge-type='{$type}' "
+            + "data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style} "
+            + "{$embed_details}></div>";
         if (isset($example)) {
             $shortcode_example = "<code>[{$tag}";
             foreach ($atts as $key => $value) {
@@ -98,7 +108,8 @@ class altmetric {
         return $embed_element;
     }
 
-    function embed_code($content) {
+    public function embedCode($content)
+    {
         $content = altmetric::dois($content);
         $content = sprintf(
             "<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>%s",
@@ -108,6 +119,5 @@ class altmetric {
     }
 }
 
-add_filter('the_content', array('altmetric', 'embed_code'));
-add_shortcode('altmetric', array('altmetric', 'altmetric_code'));
-?>
+add_filter('the_content', array('altmetric', 'embedCode'));
+add_shortcode('altmetric', array('altmetric', 'altmetricCode'));
