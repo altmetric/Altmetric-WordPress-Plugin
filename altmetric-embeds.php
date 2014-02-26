@@ -9,7 +9,7 @@
  * License: GPL2
  * */
 
-class altmetric
+class Altmetric
 {
 
     /**
@@ -116,7 +116,6 @@ class altmetric
 
     public function embedCode($content)
     {
-        /* $content = altmetric::dois($content); */
         $content = sprintf(
             "<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>%s",
             $content
@@ -125,5 +124,5 @@ class altmetric
     }
 }
 
-add_filter('the_content', array('altmetric', 'embedCode'));
-add_shortcode('altmetric', array('altmetric', 'altmetricCode'));
+add_filter('the_content', array('Altmetric', 'embedCode'));
+add_shortcode('altmetric', array('Altmetric', 'altmetricCode'));
