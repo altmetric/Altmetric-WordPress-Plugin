@@ -12,9 +12,6 @@ namespace :docs do
     system "mkdir -p #{deploy_dir}"
     cd "#{deploy_dir}" do
       system "git init"
-      system "echo 'Nothing here yet' > index.html"
-      system "git add ."
-      system "git commit -m \"Initial commit\""
       system "git branch -m gh-pages"
       system "git remote add origin #{remote}"
     end
@@ -43,7 +40,6 @@ namespace :docs do
 
   desc 'Build index page'
   task :index do
-    index_md = File.read('README.md')
     File.open('docs/index.markdown', 'w') do |fd|
       fd.write <<-END
 ---
@@ -53,8 +49,8 @@ title: Altmetric WordPress Plugin
 
 # README
       END
-      f = File.new('README.md')
-      f.each do |line|
+      readme = File.new('README.md')
+      readme.each do |line|
         next if f.lineno==1
         if line =~ /\[(altmetric .+)\]/
           tag = "{% #{$1.strip.gsub(/=/,':')} %}\n"
