@@ -20,7 +20,7 @@ class altmetric
         $new_content = preg_replace(
             "/altmetric:(doi|arxiv-id|pmid|handle):(\S+):popover:(\S+):float:(\S+):altmetric/i",
             "<div class='altmetric-embed' data-badge-type='donut' data-$1='$2' "
-            + "data-badge-popover='$3' style='float: $4'></div>",
+            . "data-badge-popover='$3' style='float: $4'></div>",
             $content
         );
         if (PREG_NO_ERROR !== preg_last_error()) {
@@ -32,6 +32,7 @@ class altmetric
 
     public function altmetricCode($atts, $content, $tag)
     {
+        print_r($atts);
         extract(shortcode_atts(array(
             'doi' => null,
             'arxiv_id' => null,
@@ -45,7 +46,8 @@ class altmetric
             'details' => null,
             'example' => null,
             'type' => 'donut',
-        ), $atts));
+            'hide_no_mentions' => null,
+        ), $atts, 'altmetric'));
 
         $identifier = null;
         $ident_type = null;
@@ -87,9 +89,13 @@ class altmetric
         if (isset($details)) {
             $embed_details = "data-badge-details='{$details}'";
         }
+        $embed_no_mentions = "";
+        if (isset($hide_no_mentions)) {
+            $embed_no_mentions = "data-hide-no-mentions='{$hide_no_mentions}'";
+        }
         $embed_element = "<div class='{$embed_class}' data-badge-type='{$type}' "
-            + "data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style} "
-            + "{$embed_details}></div>";
+            . "data-{$ident_type}='{$identifier}' {$embed_popover} {$embed_style} "
+            . "{$embed_no_mentions} {$embed_details}></div>";
         if (isset($example)) {
             $shortcode_example = "<code>[{$tag}";
             foreach ($atts as $key => $value) {
@@ -110,7 +116,7 @@ class altmetric
 
     public function embedCode($content)
     {
-        $content = altmetric::dois($content);
+        /* $content = altmetric::dois($content); */
         $content = sprintf(
             "<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>%s",
             $content

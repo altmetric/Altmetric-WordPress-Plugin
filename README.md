@@ -25,7 +25,7 @@ posts. The format of the shortcode you need to insert is as follows:
 
     [altmetric doi="10.1038/nature.2012.9872"]
 
-Which means - add an embedded donut for the [Nature article](http://dx.doi.org/10.1038/nature.2012.9872) 
+Which means - add an embedded donut for the [Nature article](http://dx.doi.org/10.1038/nature.2012.9872)
 with a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier) of `10.1038/nature.2012.9872`.
 
 ### Article identifiers
@@ -33,19 +33,19 @@ with a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier) of `10.1038
 The only required attribute is some kind of article identifier. You can use any that
 the Altmetric API can understand: doi, pmid, arxiv_id and handle at present.
 
-#### doi: 
+#### doi:
 
     [altmetric doi="10.1038/nature.2012.9872"]
 
-#### arXiv: 
+#### arXiv:
 
     [altmetric arxiv_id="1209.4191"]
 
-#### PubmedId: 
+#### PubmedId:
 
     [altmetric pmid="21771119"]
 
-#### Handle: 
+#### Handle:
 
     [altmetric handle="2022/14471"]
 
@@ -64,7 +64,7 @@ You can add a popover to the embedded badge:
 
     [altmetric doi="10.1038/nature.2012.9872" popover="right"]
 
-The value is where you want the popover to appear relative to the badge. 
+The value is where you want the popover to appear relative to the badge.
 Valid values are left, right, top and bottom.
 
 ### Details
@@ -84,14 +84,20 @@ If you want to float the entire badge on the page, you can add a float attribute
 
 This will float the entire element to the right. Valid values are left, right and none.
 
+### Hide no mentions
+
+If you want to hide the badge when there are no mentions:
+
+    [altmetric doi="10.1038/nature.2012.9872" hide_no_mentions="true"]
+
 ### All singing, all dancing
 
-You can combine any and all of the above attributes, the only required one is an identifier - 
+You can combine any and all of the above attributes, the only required one is an identifier -
 doi, arxiv_id, pmid, handle.
 
     [altmetric doi="10.1038/nature.2012.9872" float="right" popover="left" style="box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);" class="someclass" type="1"]
 
-The above will embed a 110px x 20px badge, floated on the right with a popover (with more details) 
+The above will embed a 110px x 20px badge, floated on the right with a popover (with more details)
 appearing on the left. It also adds a box shadow around the element, adds a custom CSS class
 (for further styling).
 
@@ -100,7 +106,7 @@ appearing on the left. It also adds a box shadow around the element, adds a cust
 The Altmetric WordPress Plugin is licensed under the GPL v2 or later.
 
 > This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License, version 2, as 
+it under the terms of the GNU General Public License, version 2, as
 published by the Free Software Foundation.
 
 > This program is distributed in the hope that it will be useful,
