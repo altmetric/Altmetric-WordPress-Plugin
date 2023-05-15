@@ -1,3 +1,7 @@
+# THIS PROJECT IS DEPRECATED
+
+Altmetric-WordPress-Plugin is not maintained anymore.
+
 # Altmetric WordPress plugin
 
 The Altmetric WordPress plugin provides [Altmetric embedded
@@ -23,7 +27,8 @@ your WordPress blog.
 Now the plugin is activated, you can add Altmetric embedded badges to your blog
 posts. The format of the shortcode you need to insert is as follows:
 
-    [altmetric doi="10.1038/nature.2012.9872"]
+    [altmetric doi=# THIS PROJECT IS DEPRECATED
+devise-rails-api-authentication is not maintained anymore.u"10.1038/nature.2012.9872"]
 
 Which means - add an embedded donut for the [Nature article](http://dx.doi.org/10.1038/nature.2012.9872)
 with a [DOI](http://en.wikipedia.org/wiki/Digital_object_identifier) of `10.1038/nature.2012.9872`.
